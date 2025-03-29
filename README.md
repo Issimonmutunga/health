@@ -16,10 +16,10 @@ The Health App is a mobile application designed to simplify appointment booking 
 
 ## Technologies
 
-- **Frontend**: React Native / Flutter (TBD)
-- **Backend**: Django / Node.js (TBD)
-- **Database**: PostgreSQL / Firebase
-- **Authentication**: OAuth / Firebase Auth
+- **Frontend**: React Native
+- **Backend**: Node.js
+- **Database**: PostgreSQL 
+- **Authentication**: OAuth 
 
 ## Installation
 
@@ -34,12 +34,11 @@ The Health App is a mobile application designed to simplify appointment booking 
 3. Install dependencies:
    ```sh
    npm install  # For React Native
-   flutter pub get  # For Flutter
    ```
 4. Run the app:
    ```sh
    npm start  # For React Native
-   flutter run  # For Flutter
+
    ```
 
 ## Roadmap
@@ -55,5 +54,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ## Contact
 
 For any inquiries, reach out at **[besimonmuttunga@gmail.com](mailto\:besimonmuttunga@gmail.com)**
-
 
