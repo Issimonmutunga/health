@@ -1,19 +1,26 @@
-const sequelize = require(`../config/db`);
-const User = require(`./User`);
+import sequelize from "../config/db.js";
+import User from "./User.js";
+import Appointment from "./Appointment.js";
+import MedicalRecord from "./MedicalRecord.js";
+import Payment from "./Payment.js";
+import Prescription from "./Prescription.js"
 
 
-const syncDB = async () => {
-    /** 
-     * sequelize.sync({ alter: true })::Creates tables if they don’t exist.
-        ::Modifies columns if they’ve changed (without deleting data).
-    */
-    try{
-        await sequelize.sync({ alter:true });//Use { force : true } to reset tables
-        console.log(`Database synced`);
-    }catch (error) {
-        console.error(`Error syncing database:`,error);
-    }
-};
-syncDB();
+// Relationships
+User.hasMany(Appointment, { foreignKey: "patientId", as: "appointments"});
+User.hasMany(Appointment, { foreignKey: "doctorId", as: "doctorAppointments"});
 
-module.exports = { User };
+User.hasMany(MedicalRecord, { foreignKey: "patientId", as: "medicalRecords"});
+
+User.hasMany(Payment, {foreignKey: "patientId", as: "payments"});
+
+User.hasMany(Prescription, { foreignKey: "doctorId", as: "prescription"});
+User.hasMany(Prescription, { foreignKey: "patientId", as:"patientPrescriptions"});
+
+sequelize.sync()
+    .then(() => console.log("Database synced successfully"))
+    .catch(err => console.error("Error syncing database: ", err));
+
+
+
+export{ sequelize, User , Appointment, MedicalRecord, Payment, Prescription};
