@@ -1,13 +1,13 @@
 import express from "express";
-import { protect } from "../middleware/authMiddleware.js";
+import { protect, authorize } from "../middleware/authMiddleware.js";
 import { createAppointment, getAppointments } from "../controllers/appointmentController.js";
 
 const router = express.Router();
 
-// Create a new appointment (Only authenticated users)
-router.post("/", protect, createAppointment);
+// Create a new appointment (Only patients)
+router.post("/", protect, authorize("patient"), createAppointment);
 
-// Get all appointments (Only authenticated users)
-router.get("/", protect, getAppointments);
+// Get all appointments (Only doctors)
+router.get("/", protect, authorize("doctor"), getAppointments);
 
 export default router;
