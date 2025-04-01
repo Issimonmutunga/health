@@ -18,6 +18,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+import appointmentRoutes from "./routes/appointmentRoutes.js";
+app.use("/api/appointments", appointmentRoutes);
+
 
 // Health check endpoint
 app.get('/', (req, res) => {
