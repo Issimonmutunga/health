@@ -11,4 +11,14 @@ const User = sequelize.define("User", {
     phone: { type: DataTypes.STRING },
 }, { timestamps: true });
 
+//Hash password before saving
+User.beforeCreate(async (user) => {
+    user.password = await bcrypt.hash(user.password, 10);
+});
+
+//Method to compare passwords
+User.prototype.comparePassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
+
 export default User;
