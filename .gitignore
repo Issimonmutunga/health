@@ -1,0 +1,47 @@
+### --- SYSTEM FILES --- ###
+.DS_Store
+Thumbs.db
+
+### --- NODE.JS / FRONTEND --- ###
+# Ignores node_modules in root AND subfolders (e.g., React/Vue projects)
+**/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Bundler/build files
+**/dist/
+**/build/
+*.log
+
+### --- PYTHON --- ###
+**/venv/
+**/__pycache__/
+*.pyc
+*.pyo
+
+### --- ENVIRONMENT FILES --- ###
+.env
+.env.local
+.env.*.local
+
+### --- IDE/EDITOR SETTINGS --- ###
+.vscode/
+.idea/
+*.swp
+
+### --- TEMPORARY/PLATFORM-SPECIFIC --- ###
+*.bak
+*.tmp
+
+### --- MOBILE (ANDROID/iOS) --- ###
+# Android
+**/.gradle/
+**/local.properties
+**/*.keystore
+!debug.keystore
+
+# iOS (Xcode)
+**/xcuserdata/
+**/DerivedData/
+*.ipa
+*.xcuserstate
