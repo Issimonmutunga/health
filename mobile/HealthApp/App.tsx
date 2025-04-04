@@ -1,47 +1,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { 
-  createDrawerNavigator, 
-  DrawerNavigationOptions 
-} from '@react-navigation/drawer';
-import LoginScreen from '../HealthApp/android/app/src/screens/LoginScreen';
-import SignupScreen from '../HealthApp/android/app/src/screens/SignupScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './android/app/src/screens/LoginScreen';// Import the LoginScreen
+import SignupScreen from './android/app/src/screens/SignupScreen'; // Import the SignupScreen
 
-// 1. Strongly typed route parameters
-type RootStackParamList = {
-  Login: undefined;
-  Signup: undefined;
-};
+const Stack = createStackNavigator();
 
-// 2. Type-safe drawer navigator
-const Drawer = createDrawerNavigator<RootStackParamList>();
-
-// 3. Screen options configuration
-const screenOptions: DrawerNavigationOptions = {
-  headerShown: true,
-  drawerPosition: 'left',
-  drawerType: 'front',
-  overlayColor: 'transparent',
-};
-
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator 
-        initialRouteName="Login"
-        screenOptions={screenOptions}
-      >
-        <Drawer.Screen 
-          name="Login" 
-          component={LoginScreen}
-          options={{ title: 'User Login' }}
-        />
-        <Drawer.Screen 
-          name="Signup" 
-          component={SignupScreen}
-          options={{ title: 'Create Account' }}
-        />
-      </Drawer.Navigator>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
