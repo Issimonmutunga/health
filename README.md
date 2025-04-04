@@ -25,7 +25,7 @@ The Health App is a mobile application designed to simplify appointment booking 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/health-app.git
+   git clone https://github.com/Issimonmutunga/health-app.git
    ```
 2. Navigate to the project directory:
    ```sh
