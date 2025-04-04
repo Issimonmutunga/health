@@ -43,11 +43,10 @@ The Health App is a mobile application designed to simplify appointment booking 
 
 ## Roadmap
 
--
+
 
 ## Contribution
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ##
 
