@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './android/app/src/screens/LoginScreen';
 import SignupScreen from './android/app/src/screens/SignupScreen';
 import HomeScreen from './android/app/src/screens/HomeScreen'; // Import the HomeScreen
+import Location from './android/app/src/screens/Locations';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Location" component={Location} />
       </Stack.Navigator>
     </NavigationContainer>
   );
