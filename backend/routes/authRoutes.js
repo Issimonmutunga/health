@@ -1,18 +1,18 @@
 // API routes
 import express from "express";
 import { check } from "express-validator";
-import { register, login, getProfile } from "../controllers/authController.js";
+import { signup, login, getProfile } from "../controllers/authController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 // Register Route
-router.post("/register", [
+router.post("/signup", [
     check("name", "Name is required").not().isEmpty(),
     check("email", "Enter a valid email").isEmail(),
     check("password", "Password must be at least 6 characters").isLength({ min: 6 }),
     check("role", "Role must either be a patient or doctor").isIn(["patient", "doctor"])
-], register);
+], signup);
 
 // Login Route
 router.post("/login", [
