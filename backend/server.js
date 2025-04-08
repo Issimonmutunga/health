@@ -20,7 +20,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 import appointmentRoutes from "./routes/appointmentRoutes.js";
 app.use("/api/appointments", appointmentRoutes);
-import healthRoutes from `./routes/healthRoutes.js`;
+import healthRoutes from "./routes/healthRoutes.js";
 app.use(`/api`, healthRoutes);
 
 // Health check endpoint
