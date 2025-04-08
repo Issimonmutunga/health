@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import HeroCard from '../components/HeroCard';
 import MenuCard from '../components/MenuCard';
 import ServiceCard from '../components/ServiceCard';
-import LoginScreen from './LoginScreen';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -56,8 +55,8 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   loginIcon: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
     resizeMode: 'contain',
   },
   scroll: {
