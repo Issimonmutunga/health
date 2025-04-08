@@ -1,6 +1,6 @@
 //Tracking ----
 import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
+import sequelize from '../config/db.js';
 
 const HealthData = sequelize.define('HealthData', {
   userId: { type: DataTypes.INTEGER, allowNull: false },
