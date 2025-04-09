@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 import User from '../models/User.js';
 
-export const register = async (req, res) => {
+export const signup = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
