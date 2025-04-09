@@ -6,7 +6,7 @@ const HeroCard: React.FC = () => (
     <Text style={styles.heading}>Visit us</Text>
     <Text style={styles.desc}>Your Partners in Diagnosis</Text>
     <Text style={styles.chat}>Chat</Text>
-    <Image source={require('../assets/images/image.jpeg')} style={styles.image} />
+    <Image source={require('../assets/images/image.png')} style={styles.image} />
   </View>
 );
 

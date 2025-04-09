@@ -14,7 +14,7 @@ const HomeScreen = () => {
       {/* Login Button with Image */}
       <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
         <Image
-          source={require('../assets/images/profile.jpeg')}//Profile ICON
+          source={require('../assets/icons/profile.jpeg')}//Profile ICON
           style={styles.loginIcon}
         />
       </TouchableOpacity>
@@ -28,7 +28,7 @@ const HomeScreen = () => {
           <MenuCard
             title={'Our Services'}
             description={'To be Added'}
-            icon={require('../assets/icons/image.jpeg')}
+            icon={require('../assets/icons/image.png')}
           />
           <ServiceCard />
         </View>
