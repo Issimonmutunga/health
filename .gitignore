@@ -3,21 +3,31 @@
 Thumbs.db
 
 ### --- NODE.JS / FRONTEND --- ###
-# Ignores node_modules in root AND subfolders (e.g., React/Vue projects)
 **/node_modules/
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnp.*
+*.log
 
 # Bundler/build files
 **/dist/
 **/build/
-*.log
+**/.next/
+.next/
+out/
+coverage/
+.cache/
+expo-debug.log
 
 ### --- PYTHON --- ###
 **/venv/
 **/__pycache__/
-*.pyc
+*.py[cod]
 *.pyo
+*.pyd
 
 ### --- ENVIRONMENT FILES --- ###
 .env
@@ -28,10 +38,15 @@ yarn-error.log
 .vscode/
 .idea/
 *.swp
+*.sublime-workspace
+*.sublime-project
 
 ### --- TEMPORARY/PLATFORM-SPECIFIC --- ###
 *.bak
 *.tmp
+*.log
+*.orig
+*.rej
 
 ### --- MOBILE (ANDROID/iOS) --- ###
 # Android
@@ -39,9 +54,54 @@ yarn-error.log
 **/local.properties
 **/*.keystore
 !debug.keystore
+**/build/
+**/.cxx/
+.gradle/
+*.iml
 
 # iOS (Xcode)
+**/Pods/
 **/xcuserdata/
 **/DerivedData/
-*.ipa
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
 *.xcuserstate
+*.xcworkspace
+
+# React Native iOS
+ios/build/
+ios/Pods/
+
+### --- BACKEND / DATABASE --- ###
+*.sqlite3
+*.db
+dump.rdb
+
+### --- TESTS / COVERAGE --- ###
+coverage/
+.nyc_output/
+jest-coverage/
+
+### --- METRO / REACT NATIVE --- ###
+.expo/
+.expo-shared/
+*.expo
+*.expo.devtool
+**/debug/
+**/release/
+
+### --- MISC --- ###
+*.lock
+*.tgz
+*.zip
+*.tar.gz
+*.pem
+*.crt
+*.cert
+*.key
+*.log
+*.pid
+*.seed
+*.pid.lock
