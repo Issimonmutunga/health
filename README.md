@@ -52,5 +52,5 @@ The Health App is a mobile application designed to simplify appointment booking 
 
 ## Contact
 
-For any inquiries, reach out at **[besimonmuttunga@gmail.com](mailto\:besimonmuttunga@gmail.com)**
+For any inquiries, reach out at **[besimonmutunga@gmail.com](mailto\:besimonmutunga@gmail.com)**
 
