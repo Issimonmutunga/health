@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker, MapPressEvent } from 'react-native-maps';
+import MapView, { Marker, MapPressEvent, PROVIDER_GOOGLE } from 'react-native-maps';
+import { requestLocationPermission } from './PermissionsAndroid';
 
 const Location = () => {
-  const [selectedLocation, setSelectedLocation] = useState<any>(null);
+  const [selectedLocation, setSelectedLocation] = useState<{
+    latitude: number;
+    longitude: number;
+    description: string;
+  } | null>(null);
+
+  useEffect(() => {
+    requestLocationPermission();
+  }, []);
 
   const handleMapPress = (event: MapPressEvent) => {
     const { latitude, longitude } = event.nativeEvent.coordinate;
@@ -17,7 +26,7 @@ const Location = () => {
   return (
     <View style={styles.container}>
       <MapView
-        provider={PROVIDER_GOOGLE}
+        provider={PROVIDER_GOOGLE} // 👈 Ensures Google Maps is used🤞
         style={styles.map}
         initialRegion={{
           latitude: 37.78825,
