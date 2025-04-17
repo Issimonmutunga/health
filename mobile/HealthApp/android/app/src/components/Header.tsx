@@ -3,8 +3,8 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 const Header: React.FC = () => (
   <View style={styles.container}>
-    <Image source={require('../assets/images/image.png')} style={styles.menuIcon} />
-    <Image source={require('../assets/icons/image.png')} style={styles.logo} />
+    <Image source={require('../assets/images/image.jpeg')} style={styles.menuIcon} />
+    <Image source={require('../assets/icons/image.jpeg')} style={styles.logo} />
     <Text style={styles.title}>Dr Jeff Nyakabi Clinic</Text>
     <Text style={styles.subtitle}>Medical Laboratory</Text>
   </View>

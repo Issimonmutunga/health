@@ -25,17 +25,17 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Email"
-        placeholderTextColor="#ccc"
+        placeholderTextColor="#999"
         value={email}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={setEmail}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
-        placeholderTextColor="#ccc"
+        placeholderTextColor="#999"
         secureTextEntry
         value={password}
-        onChangeText={(text) => setPassword(text)}
+        onChangeText={setPassword}
       />
       {error ? <Text style={styles.error}>{error}</Text> : null}
       <View style={styles.buttonSpacing}>
@@ -44,6 +44,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       <View style={styles.buttonSpacing}>
         <Button title="Sign Up" onPress={() => navigation.navigate('Signup')} color="#4CAF50" />
       </View>
+      <View style={styles.forgorpassword}>
+        <Button title = "Forgot Password ?" onPress={handleLogin} color="#2196F3" />
+      </View>
     </View>
   );
 };
@@ -51,16 +54,18 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     padding: 20,
   },
   input: {
-    backgroundColor: '#1E1E1E',
-    color: '#FFFFFF',
-    padding: 12,
+    backgroundColor: '#F0F0F0',
+    color: '#000000',
+    padding: 14,
     marginBottom: 15,
-    borderRadius: 8,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#DDD',
   },
   error: {
     color: 'red',
@@ -69,6 +74,9 @@ const styles = StyleSheet.create({
   },
   buttonSpacing: {
     marginTop: 10,
+  },
+  forgorpassword: {
+    marginTop : 20,
   },
 });
 

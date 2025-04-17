@@ -29,12 +29,11 @@ const Location = () => {
         provider={PROVIDER_GOOGLE} // 👈 Ensures Google Maps is used🤞
         style={styles.map}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        onPress={handleMapPress}
+          latitude: -1.2088,
+          longitude: 36.8601,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        }} onPress={handleMapPress}
       >
         {selectedLocation && (
           <Marker
