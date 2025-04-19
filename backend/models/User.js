@@ -3,7 +3,6 @@ import sequelize from "../config/db.js";
 import bcrypt from "bcryptjs";
 
 class User extends Model {
-  // Define associations here
   static associate(models) {
     User.hasMany(models.Appointment, { foreignKey: "patientId", as: "appointments" });
     User.hasMany(models.Appointment, { foreignKey: "doctorId", as: "doctorAppointments" });
@@ -13,18 +12,11 @@ class User extends Model {
     User.hasMany(models.Prescription, { foreignKey: "patientId", as: "patientPrescriptions" });
   }
 
-  // Hash password before saving a new user
-  static async beforeCreate(user) {
-    user.password = await bcrypt.hash(user.password, 10);
-  }
-
-  // Compare provided password with stored password
   async comparePassword(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
   }
 }
 
-// Initialize the User model
 User.init(
   {
     id: {
@@ -51,7 +43,7 @@ User.init(
       defaultValue: "patient",
     },
     specialty: {
-      type: DataTypes.STRING, // Only for doctors
+      type: DataTypes.STRING,
     },
     phone: {
       type: DataTypes.STRING,
@@ -61,10 +53,15 @@ User.init(
     sequelize,
     modelName: "User",
     timestamps: true,
+    hooks: {
+      beforeCreate: async (user) => {
+        if (!user.password) {
+          throw new Error("Password is required");
+        }
+        user.password = await bcrypt.hash(user.password, 10);
+      },
+    },
   }
 );
-
-// Hash password before creating a new user
-User.beforeCreate(User.beforeCreate);
 
 export default User;
