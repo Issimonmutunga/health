@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import MapView, { Marker, MapPressEvent, PROVIDER_GOOGLE } from 'react-native-maps';
 import { requestLocationPermission } from './PermissionsAndroid';
+import styles from '../styles/Locations';
 
 const Location = () => {
   const [selectedLocation, setSelectedLocation] = useState<{
@@ -54,24 +55,5 @@ const Location = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    flex: 1,
-  },
-  detailsContainer: {
-    padding: 10,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderColor: '#ccc',
-  },
-  locationDetails: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default Location;

@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import {
   View,
-  StyleSheet,
   ScrollView,
   TouchableOpacity,
   Image,
@@ -10,18 +9,22 @@ import {
   Pressable,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types'; // adjust if needed
 import Header from '../components/Header';
 import HeroCard from '../components/HeroCard';
 import MenuCard from '../components/MenuCard';
 import ServiceCard from '../components/ServiceCard';
+import styles from '../styles/HomeScreen';
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    // Simulate refresh
     setTimeout(() => {
       setRefreshing(false);
       Alert.alert('Content Refreshed');
@@ -29,7 +32,7 @@ const HomeScreen = () => {
   }, []);
 
   const handleLoginPress = () => {
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Login');
   };
 
   const handleLoginLongPress = () => {
@@ -38,7 +41,6 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Login Button with feedback & accessibility */}
       <Pressable
         style={styles.loginButton}
         onPress={handleLoginPress}
@@ -66,18 +68,16 @@ const HomeScreen = () => {
         </View>
 
         <View style={styles.overlay}>
-          {/* Interactive MenuCard */}
           <TouchableOpacity
             onPress={() => Alert.alert('Services', 'Explore our offerings')}
           >
             <MenuCard
-              title={'Our Services'}
-              description={'Explore appointments, health tracking, and more'}
+              title="Our Services"
+              description="Explore appointments, health tracking, and more"
               icon={require('../assets/icons/image.jpeg')}
             />
           </TouchableOpacity>
 
-          {/* ServiceCard interaction */}
           <TouchableOpacity
             onPress={() => Alert.alert('Service Info', 'View service details')}
           >
@@ -90,46 +90,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-  loginButton: {
-    position: 'absolute',
-    top: 40,
-    left: 16,
-    zIndex: 10,
-    padding: 6,
-    borderRadius: 30,
-    backgroundColor: 'white',
-    elevation: 3,
-  },
-  loginIcon: {
-    width: 30,
-    height: 30,
-    resizeMode: 'contain',
-  },
-  scroll: {
-    paddingTop: 100,
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-  },
-  heroWrapper: {
-    marginBottom: -40,
-    zIndex: 1,
-  },
-  overlay: {
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 16,
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    zIndex: 2,
-  },
-});

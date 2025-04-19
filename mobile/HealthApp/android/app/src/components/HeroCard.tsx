@@ -5,11 +5,11 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   Linking,
   Alert,
 } from 'react-native';
+import styles from '../styles/HeroCard';
 
 const HeroCard: React.FC = () => {
   // Properly typed navigation hook
@@ -50,34 +50,3 @@ const HeroCard: React.FC = () => {
 };
 
 export default HeroCard;
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#F3F4F6',
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 16,
-    elevation: 2,
-  },
-  heading: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#1F2937',
-    marginBottom: 16,
-  },
-  actionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  button: {
-    backgroundColor: '#10B981',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 12,
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 14,
-  },
-});
